@@ -17,9 +17,9 @@ html(lang="en")
                     ul(class='navbar-nav')
                          if user == null
                               li(class='nav-item')
-                                   a(class='nav-link' href='/user/login') Log In
+                                   a(class='nav-link' href='/user/signin') Sign In
                               li(class='nav-item')
-                                   a(class='nav-link' href='/user/register') Register
+                                   a(class='nav-link' href='/user/signup') Sign Up
                          if user != null
                               li(class='nav-item')
                                    a(class='nav-link' href='/product/catalog') Catalog

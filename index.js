@@ -1,6 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
+const flash = require('connect-flash');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const passport = require('passport');
@@ -8,9 +9,12 @@ const passport = require('passport');
 //Initializations
 const app = express();
 dotenv.config();
+require('./database');
+require('./config/passport');
 
 //Importing routes
 const indexRouter = require('./routes/index.router/index.router');
+const userRouter = require('./routes/user.router/user.router');
 
 //Config
 app.set('port', process.env.PORT || 3000);
@@ -28,9 +32,18 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
+
+//Global Variables
+app.use((req, res, next) => {
+    res.locals.error = req.flash('error');
+    res.locals.user = req.user || null;
+    next();
+});
 
 //Routes
 app.use('/', indexRouter);
+app.use('/', userRouter);
 
 //Static files
 app.use(express.static(path.join(__dirname, 'public')));
