@@ -20,9 +20,11 @@ html(lang="en")
                                    a(class='nav-link' href='/user/signin') Sign In
                               li(class='nav-item')
                                    a(class='nav-link' href='/user/signup') Sign Up
-                         if user != null
                               li(class='nav-item')
-                                   a(class='nav-link' href='/product/catalog') Catalog
+                                   a(class='nav-link' href='/product/list') Products
+                              li(class='nav-item')
+                                   a(class='nav-link' href='/product/category/list') Categories
+                         if user != null
                               li(class='nav-item')
                                    a(class='nav-link' href='/user/logout') Log Out
      div(class='container')

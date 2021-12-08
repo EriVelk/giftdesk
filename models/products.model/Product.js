@@ -20,6 +20,11 @@ const ProductSchema = new Schema({
         required:true,
         default:0
     },
+    status:{
+        type:Boolean,
+        required:true,
+        default: true
+    },
     user:{
         type: Schema.Types.ObjectId,
         ref: 'User',

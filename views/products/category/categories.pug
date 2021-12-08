@@ -1,0 +1,17 @@
+extends ../../layout
+
+block content
+    div(class='card mt-2 bg-light')
+        div(class='row')
+            div(class = 'col')
+                h2= title
+            div(class = 'col display-flex')
+                a(href="/product/category/create" class='btn btn-success') Create 
+    div(class='card-body')
+        ul(class='list-group list-group-flush')
+               each category in categories_list
+                    li(class='list-group-item')
+                         div(class='d-grid gap-2')
+                              a(href=category.url class='btn btn-light') #{category.name}
+               else
+                    li(class='list-group-item') There are not genres.

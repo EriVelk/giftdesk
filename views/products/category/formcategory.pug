@@ -1,0 +1,22 @@
+extends ../../layout
+
+block content
+    if errors
+        for error in errors
+            <div class="mt-1 alert alert-danger alert-dismissible fade show" role="alert">
+                strong= error.msg
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+    div(class='card mt-1')
+        div(class='card-header')
+            h2= title
+        div(class='card-body')
+            form(method='POST' action='')
+                div(class='form-group')
+                    label(for='name') Category
+                    input(id='name' class='form-control' name='name' type='text' autocomplete='off' value=(undefined===category ? '':category.name))
+                div(class='form-group')
+                    label(for='name') Description 
+                    textarea(id='name' class='form-control' name='description' type='text' autocomplete='off' value=(undefined===category ? '':category.description))
+                div(class='d-grid gap-2')
+                    button(class='btn btn-info mt-2' type='submit') Register

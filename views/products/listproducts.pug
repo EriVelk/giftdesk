@@ -2,4 +2,10 @@ extends ../layout
 
 block content
     div(class='card mt-2 bg-light')
-          h1(class='card-header')= title
+        div(class='row')
+            div(class = 'col')
+                h2= title
+            div(class = 'col')
+                a(href="/product/create" class='btn btn-success') Create New Product
+    div(class='card-body')
+        
