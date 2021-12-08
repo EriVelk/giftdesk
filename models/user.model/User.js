@@ -19,6 +19,10 @@ const UserSchema = new Schema({
         type: Date,
         required: true
     },
+    email:{
+        type:String,
+        required:true
+    },
     password:{
         type: String,
         required: true
@@ -27,7 +31,7 @@ const UserSchema = new Schema({
         type:Boolean,
         default:false
     }
-});
+},{ timestamps: { createdAt: 'created_at' } });
 
 UserSchema.virtual('fullname').get(function(){
     return this.flastename + ', ' + this.name; 

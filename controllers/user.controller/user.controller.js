@@ -16,7 +16,7 @@ controllerUser.signUpUserPost = [
     body('flastname', 'First Last Name must not be empty.').trim().isLength({ min: 3 }).escape(),
     body('slastname', 'Second Last Name must not be empty.').trim().isLength({ min: 3 }).escape(),
     body('date', 'Date must not be empty.').isLength({ min: 1 }).escape(),
-    check('email').isEmail().normalizeEmail().trim().withMessage('Invalid Email')
+    body('email').isEmail().normalizeEmail().trim().withMessage('Invalid Email')
     .custom(async(email)=>{
         const emailUser = await User.findOne({email: email});
         if(emailUser){
@@ -66,6 +66,7 @@ controllerUser.signUpUserPost = [
 
             newUser.password = await newUser.encryptPassword(password);
             await newUser.save();
+            console.log(newUser);
             res.redirect('signin');
         }
     }
