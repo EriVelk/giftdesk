@@ -1,5 +1,6 @@
 const {body, validationResult} = require('express-validator');
 const Category = require('../../models/products.model/Category');
+const {capitalString} = require('../../utils/utils');
 
 const controllerCategory = {};
 
@@ -27,6 +28,7 @@ controllerCategory.createCategoryGet = (req, res) => {
 
 controllerCategory.createCategoryPost = [ 
     body('name', 'Name must not be empty.').trim().isLength({ min: 3 }).escape().custom(async(name)=>{
+        name = capitalString(name);
         const nameC = await Category.findOne({name: name});
         if(nameC){
             throw new Error('Category exists.');
@@ -56,6 +58,7 @@ controllerCategory.createCategoryPost = [
                 name,
                 description
             });
+            newCategory.name = capitalString(name);
 
             await newCategory.save();
             console.log(newCategory);
