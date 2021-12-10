@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router();
 
-const { createProductGet, listProductsGet } = require('../../controllers/product.controller/product.controller');
+const { createProductGet, createProductPost, listProductsGet } = require('../../controllers/product.controller/product.controller');
 
-//list category
+//list product
 router.get('/product/list', listProductsGet);
 
-//form category
+//form product
 router.get('/product/create', createProductGet);
+
+//form product Post
+router.post('/product/create', createProductPost);
 
 module.exports = router;

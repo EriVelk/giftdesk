@@ -78,6 +78,12 @@ controllerUser.signInUserGet = (req, res) => {
     });
 }
 
+controllerUser.signInUserPost = passport.authenticate('local', {
+    failureRedirect: '/user/signin',
+    successRedirect:'/product/list',
+    failureFlash: true
+})
+
 
 
 module.exports = controllerUser;

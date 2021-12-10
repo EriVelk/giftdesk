@@ -33,7 +33,11 @@ const ProductSchema = new Schema({
     category:[{
         type: Schema.Types.ObjectId,
         ref:'Category'
-    }]
+    }],
+    img:{
+        type: String,
+        required:true
+    }
 },{ timestamps: { createdAt: 'created_at' } });
 
 ProductSchema.virtual('url').get(function(){
@@ -42,7 +46,7 @@ ProductSchema.virtual('url').get(function(){
 
 ProductSchema.virtual('registration').get(function(){
     let register = '';
-    register = DateTime.fromJSDate(this.created_at).toLocaleString(DateTime.DATETIME_HUGE);
+    register = DateTime.fromJSDate(this.created_at).toLocaleString(DateTime.DATE_MED);
     return register;
 });
 
