@@ -8,5 +8,9 @@ block content
     div(class='card-footer')
         if(data <= 0)
             span There are not list for this user.
-        each value in data 
-            span= value 
+        for item in data.list
+            div
+                p #{item.name}
+                p #{item.description}
+                a(href=item.url class='btn btn-warning') Detail product   
+            hr

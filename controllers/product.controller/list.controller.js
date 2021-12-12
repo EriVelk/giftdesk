@@ -5,10 +5,8 @@ const LocalStorage = require('node-localstorage').LocalStorage;
 const controllerList = {};
 
 controllerList.listGet = async (req, res) => {
-    userId = req.user._id;
-    const data = await List.findOne({ user: { _id: userId }},{list:1, _id:0});
-    //const list = await List.findOne({ idinvitacion: req.user.idInvitacion });
-    console.log(data);
+    const userId = req.user._id;
+    const data = await List.findOne({user:{_id:userId}}).populate('list');
     res.render('events/list', {
         title: 'My list',
         data
