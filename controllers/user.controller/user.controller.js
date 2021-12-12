@@ -84,6 +84,11 @@ controllerUser.signInUserPost = passport.authenticate('local', {
     failureFlash: true
 })
 
+controllerUser.logOutGet = (req, res) => {
+    req.logout();
+    res.redirect('/');
+}
+
 
 
 module.exports = controllerUser;

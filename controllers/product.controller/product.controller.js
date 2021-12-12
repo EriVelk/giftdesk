@@ -7,7 +7,6 @@ const controllerProduct = {};
 
 controllerProduct.listProductsGet = async(req, res) => {
     const products = await Product.find();
-    console.log(products);
     res.render('products/listproducts',{
         title: 'List Product',
         products

@@ -4,7 +4,7 @@ block content
     div(class='card mt-2 bg-light')
         div(class='row')
             div(class = 'col')
-                h2= title
+                h2= title 
             div(class = 'col')
                 a(href="/product/create" class='btn btn-success') Create New Product
     div(class='card-body')
@@ -15,7 +15,8 @@ block content
                         span= product.name
                     div(class='col-4 offset-md-4')
                         form(action="/product/cart" method='POST')
-                            button(class='btn btn-warning' name=product._id) Add to cart 
+                            input(type='hidden' name='id' value=product._id)
+                            button(class='btn btn-warning' name=product.name) Add to cart 
             div(class = 'card-body')
                 div(class = 'row flex-row')
                     div(class = 'col-3')
@@ -24,7 +25,6 @@ block content
                         div
                             ul(class='list-group')
                                 li(class='list-group-item') #{product.description}
-                                li(class='list-group-item') $ #{product.price}
                                 li(class='list-group-item') In stock : #{product.quantity}
-                            if user.isAdmin 
-                                li(class='list-group-item') #{product.registration}    
+                                if(!user.isAdmin)
+                                    li(class='list-group-item') $ #{product.price}    

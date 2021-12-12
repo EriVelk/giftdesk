@@ -20,10 +20,13 @@ block content
                     input(type='text' class='form-control' id='description' name='description' placeholder='Description of product' autocomplete='off' value=(undefined===product ? '' : product.description))
                 div(class='form-group')
                     label(for='price') Price
-                    input(type='number' class='form-control' id='price' name='price' placeholder='Price of product' autocomplete='off' value=(undefined===product ? '' : product.price))
+                    div(class='input-group')
+                        span(class='input-group-text') $
+                        input(type='number' class='form-control' id='price' name='price' placeholder='Price of product' autocomplete='off' value=(undefined===product ? '' : product.price))
+                        span(class='input-group-text') .00
                 div(class='form-group')
                     label(for='quantity') Quantity
-                    input(type='number' class='form-control' id='quantity' name='quantity' placeholder='Price of product' autocomplete='off' value=(undefined===product ? '' : product.quantity))
+                    input(type='number' class='form-control' id='quantity' name='quantity' placeholder='Quantity of product' autocomplete='off' value=(undefined===product ? '' : product.quantity))        
                 div(class='form-group')
                     label(for='category') Category 
                     div(class='form-control')

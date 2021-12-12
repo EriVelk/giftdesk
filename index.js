@@ -17,6 +17,7 @@ const indexRouter = require('./routes/index.router/index.router');
 const userRouter = require('./routes/user.router/user.router');
 const productRouter = require('./routes/products.router/product.router');
 const categoryRouter = require('./routes/products.router/category.router');
+const listRouter = require('./routes/products.router/list.router');
 
 //Config
 app.set('port', process.env.PORT || 3000);
@@ -48,6 +49,7 @@ app.use('/', indexRouter);
 app.use('/', userRouter);
 app.use('/', productRouter);
 app.use('/', categoryRouter);
+app.use('/', listRouter);
 
 //Static files
 app.use(express.static(path.join(__dirname, 'public')));

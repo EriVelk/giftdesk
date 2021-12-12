@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+    div(class='card mt-2 bg-light')
+        h1(class='card-header')= title
+    div(class='card-body')
+        a(href='/product/list' class='btn btn-success') Create New List  
+    div(class='card-footer')
+        if(data <= 0)
+            span There are not list for this user.
+        each value in data 
+            span= value 

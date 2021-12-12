@@ -34,13 +34,20 @@ const UserSchema = new Schema({
 },{ timestamps: { createdAt: 'created_at' } });
 
 UserSchema.virtual('fullname').get(function(){
-    return this.flastename + ', ' + this.name; 
+    return this.flastname + ', ' + this.name; 
 });
 
 UserSchema.virtual('dateUser').get(function(){
     let date_string = '';
     date_string = DateTime.fromJSDate(this.date).toLocaleString(DateTime.DATE_MED);
     return date_string;
+});
+
+UserSchema.virtual('idInvitacion').get(function(){
+    let idI = '';
+    let temp = JSON.stringify(this._id);
+    idI = temp.substring(8,14) + '-' + this.name
+    return idI;
 });
 
 
