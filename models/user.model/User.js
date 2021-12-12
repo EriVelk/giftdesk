@@ -1,6 +1,7 @@
 const { Schema, model} = require('mongoose');
 const bcrypt = require('bcryptjs');
 const { DateTime } = require('luxon');
+const {transactionCart} = require('../../utils/utils');
 
 const UserSchema = new Schema({
     name : {
@@ -49,6 +50,8 @@ UserSchema.virtual('idInvitacion').get(function(){
     idI = temp.substring(8,14) + '-' + this.name
     return idI;
 });
+
+UserSchema.virtual('transactionCart').get(transactionCart);
 
 
 UserSchema.methods.encryptPassword = async(password) => {

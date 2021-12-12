@@ -14,9 +14,14 @@ block content
                     div(class='col-md-4')
                         span= product.name
                     div(class='col-4 offset-md-4')
-                        form(action="/product/cart" method='POST')
-                            input(type='hidden' name='id' value=product._id)
-                            button(class='btn btn-warning' name=product.name) Add to cart 
+                        if(user.isAdmin)
+                            form(action="/product/list" method='POST')
+                                input(type='hidden' name='id' value=product._id)
+                                button(class='btn btn-warning' name=product.name) Add to list
+                        if(!user.isAdmin)
+                            form(action="/product/cart" method='POST')
+                                input(type='hidden' name='id' value=product._id)
+                                button(class='btn btn-warning' name=product.name) Add to cart
             div(class = 'card-body')
                 div(class = 'row flex-row')
                     div(class = 'col-3')
