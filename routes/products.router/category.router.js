@@ -6,11 +6,13 @@ const { createCategoryGet, listCategoryGet, createCategoryPost, detailCategoryGe
 //list category
 router.get('/product/category/list', listCategoryGet);
 
-router.get('/product/category/:id', detailCategoryGet);
-
 //form category
 router.get('/product/category/create', createCategoryGet);
 
 router.post('/product/category/create', createCategoryPost);
+
+
+router.get('/product/category/:id', detailCategoryGet);
+
 
 module.exports = router;

@@ -6,14 +6,15 @@ const { createProductGet, createProductPost, listProductsGet, productDetailGet }
 //list product
 router.get('/product/list', listProductsGet);
 
-//Detail Product
-router.get('/product/:id', productDetailGet);
-
 //form product
 router.get('/product/create', createProductGet);
 
 //form product Post
 router.post('/product/create', createProductPost);
+
+//Detail Product
+router.get('/product/:id', productDetailGet);
+
 
 
 module.exports = router;

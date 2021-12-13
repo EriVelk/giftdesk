@@ -1,8 +1,12 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+
 dotenv.config();
 
+const dev_db_url = '';
 
-mongoose.connect(process.env.MONGODB_URI).then(db => {
-        console.log('Database is connect web')
-}).catch(err => console.log('Error: [ ', err));
+mongoose.connect(process.env.MONGODB_URI || dev_db_url, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }).then(db => console.log('Database is connect'))
+    .catch(err => console.log('ERROR::::::[ ', err));
