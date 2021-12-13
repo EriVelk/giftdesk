@@ -15,6 +15,9 @@ controllerUser.signUpUserPost = [
     body('name', 'Name must not be empty.').trim().isLength({ min: 3 }).escape(),
     body('flastname', 'First Last Name must not be empty.').trim().isLength({ min: 3 }).escape(),
     body('slastname', 'Second Last Name must not be empty.').trim().isLength({ min: 3 }).escape(),
+    body('street', 'Street must not be empty.').trim().isLength({ min: 3 }).escape(),
+    body('city', 'City must not be empty.').trim().isLength({ min: 3 }).escape(),
+    body('codepostal', 'Code Postal must not be empty.').trim().isLength({ min: 3 }).escape(),
     body('date', 'Date must not be empty.').isLength({ min: 1 }).escape(),
     body('email').isEmail().normalizeEmail().trim().withMessage('Invalid Email')
     .custom(async(email)=>{
@@ -38,6 +41,9 @@ controllerUser.signUpUserPost = [
             name,
             flastname,
             slastname,
+            street,
+            city,
+            codepostal,
             date,
             email,
             password
@@ -50,6 +56,9 @@ controllerUser.signUpUserPost = [
                 name,
                 flastname,
                 slastname,
+                street,
+                city,
+                codepostal,
                 date,
                 email,
                 errors: errors.array()
@@ -59,6 +68,9 @@ controllerUser.signUpUserPost = [
                 name,
                 flastname,
                 slastname,
+                street,
+                city,
+                codepostal,
                 date,
                 email,
                 password
@@ -80,7 +92,7 @@ controllerUser.signInUserGet = (req, res) => {
 
 controllerUser.signInUserPost = passport.authenticate('local', {
     failureRedirect: '/user/signin',
-    successRedirect:'/product/list',
+    successRedirect:'/',
     failureFlash: true
 })
 

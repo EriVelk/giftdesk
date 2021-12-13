@@ -20,12 +20,20 @@ const CartSchema = new Schema({
     transaction:{
         type:String,
         required: true
+    },
+    adress:{
+        type:String
+    },
+    status:{
+        type:Boolean,
+        required:true,
+        default:true
     }
 },{ timestamps: { createdAt: 'created_at' } });
 
 CartSchema.virtual('dateSold').get(function(){
     let date_string = '';
-    date_string = DateTime.fromJSDate(this.created_at).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
+    date_string = DateTime.fromJSDate(this.created_at).toLocaleString(DateTime.DATE_MED);
     return date_string;
 });
 

@@ -21,15 +21,16 @@ html(lang="en")
                               li(class='nav-item')
                                    a(class='nav-link' href='/user/signup') Sign Up
                          if user != null
-                              li(class='nav-item')
-                                   a(class='nav-link' href='/product/user/list') My list
+                              if user.isAdmin 
+                                   li(class='nav-item')
+                                        a(class='nav-link' href='/product/user/list') My List
+                              else
+                                   li(class='nav-item')
+                                        a(class='nav-link' href='/product/user/cart') My Cart 
                               li(class='nav-item')
                                    a(class='nav-link' href='/product/list') Products
                               li(class='nav-item')
-                                   a(class='nav-link' href='/product/category/list') Categories
-                              li(class='nav-item')
-                                   a(href='/product/cart')
-                                        img(src='/img/comprar.png' style = "display:block; margin:auto; max-width: 35%; height: auto;")  
+                                   a(class='nav-link' href='/product/category/list') Categories 
                               li(class='nav-item')
                                    a(class='nav-link' href='/user/logout') Log Out
      div(class='container')

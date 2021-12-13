@@ -28,6 +28,18 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
+    street:{
+        type:String,
+        required:true
+    },
+    city:{
+        type:String,
+        required:true 
+    },
+    codepostal:{
+        type:String,
+        required:true
+    },
     isAdmin:{
         type:Boolean,
         default:false
@@ -49,6 +61,12 @@ UserSchema.virtual('idInvitacion').get(function(){
     let temp = JSON.stringify(this._id);
     idI = temp.substring(8,14) + '-' + this.name
     return idI;
+});
+
+UserSchema.virtual('fulladress').get(function(){
+    let full = '';
+    full = this.city + ', ' + this.street + ', ' + this.codepostal; 
+    return full;
 });
 
 UserSchema.virtual('transactionCart').get(transactionCart);

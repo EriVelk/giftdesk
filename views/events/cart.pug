@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+    div(class='card mt-2 bg-light')
+        h1(class='card-header')= title
+    div(class='card-body')
+        div(class='row bg-dark text-white')
+            div(class='col')
+                p Name: #{data.user.fullname}
+            div(class='col')
+                p Date of purchase: #{data.dateSold}
+        div(class='row bg-dark text-white')
+            p Adress: #{data.user.fulladress}
+        div(class='row bg-light')
+            for value in data.list
+                div(class='col')
+                    p(class='fs-5 text') Name: #{value.name}
+                    p Description: #{value.description}
+                div(class='col')
+                    img(src='/img/' + value.img)
+    div(class='card-footer')
+        form(class= 'row' method='POST')
+            button(type='submit' class='btn btn-danger') Confirm Details 

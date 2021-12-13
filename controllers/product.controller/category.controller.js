@@ -19,6 +19,15 @@ controllerCategory.listCategoryGet = async(req, res, next) =>{
     })
 }
 
+//Detail Category Get
+controllerCategory.detailCategoryGet = async(req, res) =>{
+    const category = await Category.findById(req.params.id);
+    res.render('products/category/category',{
+        title: category.name,
+        category
+    })
+}
+
 //Create category form Get
 controllerCategory.createCategoryGet = (req, res) => {
     res.render('products/category/formcategory',{

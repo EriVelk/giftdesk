@@ -3,14 +3,34 @@ extends ../layout
 block content
     div(class='card mt-2 bg-light')
         h1(class='card-header')= title
-    div(class='card-body')
-        a(href='/product/list' class='btn btn-success') Create New List  
+    if user.isAdmin 
+        div(class='card-body')
+            div(class='row')
+                div(class='col')
+                    if(data <=0 )    
+                        a(href='/product/list' class='btn btn-success') Create New List
+                    else
+                        div(class='btn-group')
+                            a(href='/product/list' class='btn btn-success') Add Product To List
+                            a(href = '/product/list/end' class='btn btn-danger') Generate Invitation Folio
+    if !user.isAdmin 
+        div(class='card-body')
+            div(class='row')
+                div(class='col')
+                    if(data <=0 )    
+                        a(href='/product/list' class='btn btn-success') Create New Cart
+                    else
+                        div(class='btn-group')
+                            a(href='/product/list' class='btn btn-success') Add Product To Cart
+                            a(href = '/product/cart/end' class='btn btn-danger') Finalize purchase 
     div(class='card-footer')
         if(data <= 0)
             span There are not list for this user.
-        for item in data.list
-            div
-                p #{item.name}
-                p #{item.description}
-                a(href=item.url class='btn btn-warning') Detail product   
-            hr
+        else 
+            for item in data.list
+                div
+                    p #{item.name}
+                    p #{item.description}
+                    a(href=item.url class='btn btn-warning') Detail product   
+                hr
+        

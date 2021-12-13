@@ -1,0 +1,12 @@
+extends ../../layout
+
+block content
+    div(class='card mt-2 bg-light')
+        div(class='card-header')
+            div(class='row')
+                p(class='fs-1 text-center')= title
+        div(class='card-body')
+            div(class='row')
+                p(class='fs-2') Description: #{category.description}
+                p(class='fs-3') Date Register:  #{category.registration}
+                

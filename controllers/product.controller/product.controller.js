@@ -80,4 +80,12 @@ controllerProduct.createProductPost = [
 
 ]
 
+controllerProduct.productDetailGet = async(req, res, next) => {
+    const product = await Product.findById(req.params.id).populate('category').populate('user');
+    res.render('products/product', {
+        title: product.name,
+        product
+    })
+}
+
 module.exports = controllerProduct;

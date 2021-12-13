@@ -10,6 +10,11 @@ const ListSchema = new Schema({
         ref: 'User',
         required:true
     },
+    status:{
+        type:Boolean,
+        required:true,
+        default:true
+    },
     list:[{
         type:Schema.Types.ObjectId,
         ref:'Product'

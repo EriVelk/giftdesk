@@ -1,0 +1,8 @@
+extends ../layout
+
+block content
+    div(class='card mt-2 bg-light')
+        h1(class='card-header')= title
+    div(class='card-footer')
+        form(class='row' method='POST')
+            button(type='submit' class='btn btn-danger') Confirm

@@ -2,4 +2,22 @@ extends ../layout
 
 block content
     div(class='card mt-2 bg-light')
-          h1(class='card-header')= title
+        div(class='card-header')
+            div(class='row')
+                p(class='fs-2 text-center')= title
+        div(class='card-body')
+            div(class='row')
+                div(class='col')
+                    img(src='/img/'+product.img alt=product.name)
+                div(class='col')
+                    p(class='fs-5') Description: #{product.description}
+                    p(class='fs-5') Quantity: #{product.quantity}
+                    p(class='fs-6') Date Register:  #{product.registration}
+        div(class='card-footer')
+            div(class='row')
+                div(class='col')
+                    p(class='fs-4 text-end') $
+                div(class='col')
+                    p(class='fs-4 text-start') #{product.price}
+            div(class='row')
+                
