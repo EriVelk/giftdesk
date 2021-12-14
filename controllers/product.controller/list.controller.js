@@ -132,8 +132,9 @@ controllerList.findListPost = [
                 errors: errors.array()
             });
         }else{
+            let localStorage = new LocalStorage('./scratch');
+            localStorage.setItem('idinvitation', idinvitation);
             const data = await List.findOne({idinvitacion: req.body.idinvitation, status:true}).populate('list').populate('user');
-                console.log(data)
                 res.render('list/listgift',{
                 title:'List of '+data.user.fullname,
                 data

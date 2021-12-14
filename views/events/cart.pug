@@ -9,7 +9,8 @@ block content
                 p Name: #{data.user.fullname}
             div(class='col')
                 p Date of purchase: #{data.dateSold}
-        div(class='row bg-dark text-white')
+        div(class='row bg-secondary text-white')
+            p Purchase folio: #{data.folio}
             p Adress: #{data.user.fulladress}
         div(class='row bg-light')
             for value in data.list
