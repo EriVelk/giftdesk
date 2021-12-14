@@ -24,11 +24,13 @@ html(lang="en")
                               if user.isAdmin 
                                    li(class='nav-item')
                                         a(class='nav-link' href='/product/user/list') My List
+                                   li(class='nav-item')
+                                        a(class='nav-link' href='/product/list') Products
                               else
                                    li(class='nav-item')
-                                        a(class='nav-link' href='/product/user/cart') My Cart 
-                              li(class='nav-item')
-                                   a(class='nav-link' href='/product/list') Products
+                                        a(class='nav-link' href='/product/user/cart') My Cart
+                                   li(class='nav-item')
+                                        a(class='nav-link' href='/product/user/invitation') Find List  
                               li(class='nav-item')
                                    a(class='nav-link' href='/product/category/list') Categories 
                               li(class='nav-item')

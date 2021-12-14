@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+    div(class='card mt-2 bg-light')
+        h1(class='card-header')= title
+    div(class='card-body')
+        for product in data.list
+            div(class = 'card-header')
+                div(class='row')
+                    div(class='col-md-4')
+                        span= product.name
+                    div(class='col-4 offset-md-4')
+                        form(action="/product/cart" method='POST')
+                            input(type='hidden' name='id' value=product._id)
+                            button(class='btn btn-warning' name=product.name) Add to cart
+            div(class = 'card-body')
+                div(class = 'row flex-row')
+                    div(class = 'col-3')
+                        img(src='/img/'+product.img , alt=product.img)
+                    div(class = 'col-9')
+                        div
+                            ul(class='list-group')
+                                li(class='list-group-item') #{product.description}
+                                li(class='list-group-item') In stock : #{product.quantity}
+                                li(class='list-group-item') $ #{product.price}
