@@ -78,7 +78,7 @@ controllerList.createCartUser = async(req, res) =>{
         }
 
     }
-    res.redirect('/product/user/invitation');
+    res.redirect('/product/user/cart');
 }
 
 controllerList.listCartUser = async(req, res) =>{
