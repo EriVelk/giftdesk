@@ -17,11 +17,11 @@ block content
                         if(user.isAdmin)
                             form(action="/product/list" method='POST')
                                 input(type='hidden' name='id' value=product._id)
-                                button(class='btn btn-warning' name=product.name) Add to list
+                                button(class='btn btn-warning' id='add-button' name='add-button') Add to list
                         if(!user.isAdmin)
                             form(action="/product/cart" method='POST')
                                 input(type='hidden' name='id' value=product._id)
-                                button(class='btn btn-warning' name=product.name) Add to cart
+                                button(class='btn btn-warning' id='add-button' name='add-button') Add to cart
             div(class = 'card-body')
                 div(class = 'row flex-row')
                     div(class = 'col-3')

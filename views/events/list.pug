@@ -1,6 +1,7 @@
 extends ../layout
 
 block content
+    script(src="/scripts/button.js")
     div(class='card mt-2 bg-light')
         h1(class='card-header')= title
     if user.isAdmin 
@@ -18,11 +19,11 @@ block content
             div(class='row')
                 div(class='col')
                     if(data <=0 )    
-                        a(href='/product/user/invitation' class='btn btn-success') Create New Cart
+                        a(href='/product/user/invitation' class='btn btn-success' id='cart-user') Create New Cart
                     else
                         div(class='btn-group')
                             a(href='/product/user/invitation' class='btn btn-success') Add Product To Cart
-                            a(href = '/product/cart/end' class='btn btn-danger') Finalize purchase 
+                            a(href = '/product/cart/end' class='btn btn-danger' id='finalize-purchase') Finalize purchase 
     div(class='card-footer')
         if(data <= 0)
             span There are not list for this user.

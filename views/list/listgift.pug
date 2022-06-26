@@ -12,7 +12,7 @@ block content
                     div(class='col offset-md-4')
                         form(action="/product/cart" method='POST')
                             input(type='hidden' id= 'id' name='id' value=product._id)
-                            button(type='submit' class='btn btn-warning' name=product.name onclick='addCart("' + product._id + '");') Add to cart
+                            button(type='submit' class='btn btn-warning' id='add-button' name=product.name onclick='addCart("' + product._id + '");') Add to cart
             div(class = 'card-body')
                 div(class = 'row')
                     div(class = 'col')

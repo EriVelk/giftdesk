@@ -8,6 +8,4 @@ function addCart(number){
         localStorage.setItem('myCart',JSON.stringify(exist));
         console.log(exist);
     }
-    
-    
 }
